@@ -5,9 +5,6 @@ import matplotlib.pyplot as plt
 import math
 
 def square():
-    #Чтобы текста не накладывались друг на друга
-    label1.configure(text='')
-    D.configure(text='')
     A = int(a.get())
     B = int(b.get())
     C = int(c.get())
@@ -16,7 +13,7 @@ def square():
     if Disc > 0:
         label1.configure(text=f'Корни уравнения:\nx1 = {-B+round(math.sqrt(Disc),2)/2*A}\nx2 = {-B-round(math.sqrt(Disc),2)/2*A}')
     elif Disc == 0:
-        label1.configure(text=f'Дискриминант равен 0, по этому корни уравнения равны.\nx = {-B/2*A}')
+        label1.configure(text=f'Дискриминант равен 0,\nпо этому корни уравнения равны.\nx = {-B/2*A}')
     else:
         label1.configure(text='Дискриминант меньше 0, корней нет.')
     if chkvar.get() == 1:
