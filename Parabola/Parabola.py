@@ -5,19 +5,27 @@ import matplotlib.pyplot as plt
 import math
 
 def square():
-    A = int(a.get())
-    B = int(b.get())
-    C = int(c.get())
-    Disc = B**2-4*A*C
-    D.configure(text=f'Дискриминант: {Disc}')
-    if Disc > 0:
-        label1.configure(text=f'Корни уравнения:\nx1 = {-B+round(math.sqrt(Disc),2)/2*A}\nx2 = {-B-round(math.sqrt(Disc),2)/2*A}')
-    elif Disc == 0:
-        label1.configure(text=f'Дискриминант равен 0,\nпо этому корни уравнения равны.\nx = {-B/2*A}')
-    else:
-        label1.configure(text='Дискриминант меньше 0, корней нет.')
-    if chkvar.get() == 1:
-        parabola(A,B,C)
+    try:
+     try:
+      A = int(a.get())
+      B = int(b.get())
+      C = int(c.get())
+     except:
+      D.configure(text="")
+      label1.configure(text="Ошибка, проверьте введенные данные.")
+     Disc = B**2-4*A*C
+     D.configure(text=f'Дискриминант: {Disc}')
+     if Disc > 0:
+         label1.configure(text=f'Корни уравнения:\nx1 = {-B+round(math.sqrt(Disc),2)/2*A}\nx2 = {-B-round(math.sqrt(Disc),2)/2*A}')
+     elif Disc == 0:
+         label1.configure(text=f'Дискриминант равен 0,\nпо этому корни уравнения равны.\nx = {-B/2*A}')
+     else:
+         label1.configure(text='Дискриминант меньше 0, корней нет.')
+     if chkvar.get() == 1:
+         parabola(A,B,C)
+    except:
+     D.configure(text="")
+     label1.configure(text="Ошибка в работе программы,\n проверьте введеные данные\nили перезапустите программу")
 
 def parabola(a,b,c):
     x = np.arange(-100,100)
